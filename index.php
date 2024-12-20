@@ -102,7 +102,7 @@ require_once 'inc/connection.php';
                         <?php
                         endif;
                         ?>
-                        
+
 
 
 
@@ -117,28 +117,28 @@ require_once 'inc/connection.php';
 
                 <div class="m-2 py-3">
                     <div class="show-to-do">
-                    <?php
+                        <?php
                         $stm = $conn->query('SELECT * FROM todo where `status`="done";');
                         if ($stm->rowCount() > 0):
                             $done_notes = $stm->fetchAll();
                             foreach ($done_notes as $done):
                         ?>
-                        <div class="alert alert-warning p-2">
-                            <a href="handle/delete.php?id=<?php echo $done['id']?>" onclick="confirm('are your sure')" 
-                            class="remove-to-do text-dark d-flex justify-content-end "><i class="fa fa-close" style="font-size:16px;"></i></a>
-                            <h4><?php echo $done['title'] ?></h4>
-                            <h5><?php echo $done['created_at'] ?></h5>
-                        </div>
-                    <?php
-                        endforeach;
+                                <div class="alert alert-warning p-2">
+                                    <a href="handle/delete.php?id=<?php echo $done['id'] ?>" onclick="confirm('are your sure')"
+                                        class="remove-to-do text-dark d-flex justify-content-end "><i class="fa fa-close" style="font-size:16px;"></i></a>
+                                    <h4><?php echo $done['title'] ?></h4>
+                                    <h5><?php echo $done['created_at'] ?></h5>
+                                </div>
+                            <?php
+                            endforeach;
                         else:
                             ?>
-                        <div class="item">
-                            <div class="alert-warning text-center ">
-                                empty to do
+                            <div class="item">
+                                <div class="alert-warning text-center ">
+                                    empty to do
+                                </div>
+                            <?php endif; ?>
                             </div>
-<?php endif;?>                            
-                        </div>
                     </div>
                 </div>
             </div>
