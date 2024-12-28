@@ -19,7 +19,6 @@ require_once 'inc/connection.php';
                 </div>
             </div>
 
-
         </div>
         <div class="row d-flex justify-content-between">
             <!-- all -->
