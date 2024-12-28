@@ -68,11 +68,3 @@ todo-list-php/
 - Priority levels for tasks.
 - Integration with external APIs for reminders or notifications.
 
-## Contributing
-
-Contributions are welcome! Please fork this repository and submit a pull request.
-
-## License
-
-This project is licensed under the MIT License.
-*/
