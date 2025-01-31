@@ -11,9 +11,12 @@ require_once 'inc/connection.php';
             <div class="container mb-5 d-flex justify-content-center">
                 <div class="col-md-4">
                     <form action="handle/addToDo.php" method="post">
-                        <textarea type="text" class="form-control" rows="3" name="title" id="" placeholder="enter your note here"></textarea>
+                        <textarea type="text" class="form-control" rows="3" name="title" id=""
+                            placeholder="enter your note here"></textarea>
                         <div class="text-center">
-                            <button type="submit" name="submit" class="form-control text-white bg-info mt-3 ">Add To Do</button>
+                            <button type="submit" name="submit" class="form-control text-white bg-info mt-3 ">
+                                Add To Do
+                            </button>
                         </div>
                     </form>
                 </div>
@@ -36,7 +39,8 @@ require_once 'inc/connection.php';
                                     <h4><?php echo $all['title'] ?></h4>
                                     <h5><?php echo $all['created_at'] ?></h5>
                                     <div class="d-flex justify-content-between mt-3">
-                                        <a href="edit.php?id=<?php echo $all['id'] ?>" class="btn btn-info p-1 text-white">edit</a>
+                                        <a href="edit.php?id=<?php echo $all['id'] ?>"
+                                            class="btn btn-info p-1 text-white">edit</a>
 
                                         <a href="#" class="btn btn-info p-1 text-white">doing</a>
                                     </div>
@@ -45,7 +49,7 @@ require_once 'inc/connection.php';
                             </div>
                         </div>
 
-                    <?php
+                        <?php
                     }
                 } else { ?>
 
@@ -55,7 +59,7 @@ require_once 'inc/connection.php';
                         </div>
                     </div>
 
-                <?php
+                    <?php
 
                 }
                 ?>
@@ -77,18 +81,18 @@ require_once 'inc/connection.php';
                         if ($stm->rowCount() > 0):
                             $doing_notes = $stm->fetchAll();
                             foreach ($doing_notes as $doing):
-                        ?>
+                                ?>
                                 <div class="alert alert-success p-2">
                                     <h4><?php echo $doing['title'] ?></h4>
                                     <h5><?php echo $doing['created_at'] ?></h5>
                                     <div class="d-flex justify-content-between mt-3">
                                         <a></a>
-                                        <a href="#" class="btn btn-success p-1 text-white">Done</a>
+                                        <a href="#" class="btn btn-success p-1 text-white rounded ">Done</a>
                                     </div>
 
                                 </div>
 
-                            <?php
+                                <?php
                             endforeach;
                         else:
                             ?>
@@ -98,7 +102,7 @@ require_once 'inc/connection.php';
                                     empty to do
                                 </div>
                             </div>
-                        <?php
+                            <?php
                         endif;
                         ?>
 
@@ -121,14 +125,15 @@ require_once 'inc/connection.php';
                         if ($stm->rowCount() > 0):
                             $done_notes = $stm->fetchAll();
                             foreach ($done_notes as $done):
-                        ?>
+                                ?>
                                 <div class="alert alert-warning p-2">
                                     <a href="handle/delete.php?id=<?php echo $done['id'] ?>" onclick="confirm('are your sure')"
-                                        class="remove-to-do text-dark d-flex justify-content-end "><i class="fa fa-close" style="font-size:16px;"></i></a>
+                                        class="remove-to-do text-dark d-flex justify-content-end "><i class="fa fa-close"
+                                            style="font-size:16px;"></i></a>
                                     <h4><?php echo $done['title'] ?></h4>
                                     <h5><?php echo $done['created_at'] ?></h5>
                                 </div>
-                            <?php
+                                <?php
                             endforeach;
                         else:
                             ?>
@@ -137,7 +142,7 @@ require_once 'inc/connection.php';
                                     empty to do
                                 </div>
                             <?php endif; ?>
-                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
