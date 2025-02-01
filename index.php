@@ -1,15 +1,19 @@
 <?php
 require_once 'inc/header.php';
 require_once 'inc/connection.php';
+require_once 'App.php';
 ?>
 
 <body>
 
     <div class="container my-3 ">
         <div class="row d-flex justify-content-center">
-
             <div class="container mb-5 d-flex justify-content-center">
                 <div class="col-md-4">
+                    <?php 
+                    require_once 'inc/error.php';
+                    require_once 'inc/success.php';
+                    ?>
                     <form action="handle/addToDo.php" method="post">
                         <textarea type="text" class="form-control" rows="3" name="title" id=""
                             placeholder="enter your note here"></textarea>
@@ -28,7 +32,7 @@ require_once 'inc/connection.php';
             <div class="col-md-3 ">
                 <h4 class="text-white">All Notes</h4>
                 <?php
-                $stm = $conn->query('SELECT * FROM `todo` WHERE `STATUS`="all"');
+                $stm = $conn->query('SELECT * FROM `todo` WHERE `STATUS`="all" order by `id` desc');
                 if ($stm->rowCount() > 0) {
                     $all_notes = $stm->fetchAll();
                     foreach ($all_notes as $all) { ?>
@@ -77,7 +81,7 @@ require_once 'inc/connection.php';
                 <div class="m-2 py-3">
                     <div class="show-to-do">
                         <?php
-                        $stm = $conn->query('SELECT * FROM todo where `status`="doing";');
+                        $stm = $conn->query('SELECT * FROM todo where `status`="doing"; ');
                         if ($stm->rowCount() > 0):
                             $doing_notes = $stm->fetchAll();
                             foreach ($doing_notes as $doing):

@@ -33,4 +33,7 @@ class Session
     public function abort(){
         session_abort();
     }
+    public function check ($key){
+        return isset($_SESSION[$key]);
+    }   
 }
