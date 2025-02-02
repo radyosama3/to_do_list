@@ -10,7 +10,7 @@ require_once 'App.php';
         <div class="row d-flex justify-content-center">
             <div class="container mb-5 d-flex justify-content-center">
                 <div class="col-md-4">
-                    <?php 
+                    <?php
                     require_once 'inc/error.php';
                     require_once 'inc/success.php';
                     ?>
@@ -29,7 +29,7 @@ require_once 'App.php';
         </div>
         <div class="row d-flex justify-content-between">
             <!-- all -->
-            <div class="col-md-3 ">
+            <div class="col-md-3  ">
                 <h4 class="text-white">All Notes</h4>
                 <?php
                 $stm = $conn->query('SELECT * FROM `todo` WHERE `STATUS`="all" order by `id` desc');
@@ -38,7 +38,6 @@ require_once 'App.php';
                     foreach ($all_notes as $all) { ?>
                         <div class="m-2  py-3">
                             <div class="show-to-do">
-
                                 <div class="alert alert-info p-2">
                                     <h4><?php echo $all['title'] ?></h4>
                                     <h5><?php echo $all['created_at'] ?></h5>
@@ -52,24 +51,17 @@ require_once 'App.php';
                                 </div>
                             </div>
                         </div>
-
-                        <?php
+                    <?php
                     }
                 } else { ?>
-
                     <div class="item">
                         <div class="alert-info text-center ">
                             empty to do
                         </div>
                     </div>
-
-                    <?php
-
+                <?php
                 }
                 ?>
-
-
-
             </div>
 
             <!-- doing -->
@@ -85,7 +77,7 @@ require_once 'App.php';
                         if ($stm->rowCount() > 0):
                             $doing_notes = $stm->fetchAll();
                             foreach ($doing_notes as $doing):
-                                ?>
+                        ?>
                                 <div class="alert alert-success p-2">
                                     <h4><?php echo $doing['title'] ?></h4>
                                     <h5><?php echo $doing['created_at'] ?></h5>
@@ -96,7 +88,7 @@ require_once 'App.php';
 
                                 </div>
 
-                                <?php
+                            <?php
                             endforeach;
                         else:
                             ?>
@@ -106,7 +98,7 @@ require_once 'App.php';
                                     empty to do
                                 </div>
                             </div>
-                            <?php
+                        <?php
                         endif;
                         ?>
 
@@ -119,9 +111,8 @@ require_once 'App.php';
             </div>
 
             <!-- done -->
-            <div class="col-md-3">
+            <div class="col-md-3 ">
                 <h4 class="text-white">Done</h4>
-
                 <div class="m-2 py-3">
                     <div class="show-to-do">
                         <?php
@@ -129,7 +120,7 @@ require_once 'App.php';
                         if ($stm->rowCount() > 0):
                             $done_notes = $stm->fetchAll();
                             foreach ($done_notes as $done):
-                                ?>
+                        ?>
                                 <div class="alert alert-warning p-2">
                                     <a href="handle/delete.php?id=<?php echo $done['id'] ?>" onclick="confirm('are your sure')"
                                         class="remove-to-do text-dark d-flex justify-content-end "><i class="fa fa-close"
@@ -137,7 +128,7 @@ require_once 'App.php';
                                     <h4><?php echo $done['title'] ?></h4>
                                     <h5><?php echo $done['created_at'] ?></h5>
                                 </div>
-                                <?php
+                            <?php
                             endforeach;
                         else:
                             ?>
@@ -146,7 +137,7 @@ require_once 'App.php';
                                     empty to do
                                 </div>
                             <?php endif; ?>
-                        </div>
+                            </div>
                     </div>
                 </div>
             </div>
