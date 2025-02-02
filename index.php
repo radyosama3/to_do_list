@@ -45,7 +45,7 @@ require_once 'App.php';
                                         <a href="edit.php?id=<?php echo $all['id'] ?>"
                                             class="btn btn-info p-1 text-white">edit</a>
 
-                                        <a href="#" class="btn btn-info p-1 text-white">doing</a>
+                                        <a href="handle/goto.php?name=doing&id=<?php echo $all['id']?>" class="btn btn-info p-1 text-white">doing</a>
                                     </div>
 
                                 </div>
@@ -83,7 +83,7 @@ require_once 'App.php';
                                     <h5><?php echo $doing['created_at'] ?></h5>
                                     <div class="d-flex justify-content-between mt-3">
                                         <a></a>
-                                        <a href="#" class="btn btn-success p-1 text-white rounded ">Done</a>
+                                        <a href="handle/goto.php?name=done&id=<?php echo $doing['id']?>" class="btn btn-success p-1 text-white rounded ">Done</a>
                                     </div>
 
                                 </div>

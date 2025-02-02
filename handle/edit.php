@@ -9,6 +9,11 @@ if ($request->checkGet(key: 'id')&&$request->checkPost('submit')){
     $validation->validate('title',$title,['required','str']); 
     $error= $validation->GetError();
     if(empty($error)){
+
+    $stm= $conn->prepare('select id form todo where id=:id');
+    $stm -> bindParam(':id',$id,PDO::PARAM_STR);
+    $stm -> execute();
+    if ($stm->rowCount()>0){
         $update = $conn->prepare("update todo set title=:title where id=:id");
         $update->bindParam(':title', $title, PDO::PARAM_STR);
         $update -> bindParam(':id',$id,PDO::PARAM_INT);
@@ -30,6 +35,11 @@ if ($request->checkGet(key: 'id')&&$request->checkPost('submit')){
     }
     //update 
     //redirect
+}
+else{
+    $session -> set('errors',"not found");
+    header('location:../edit.php?id='.$id);
+}
 }
 else{
     $session -> set('error','ID not found');

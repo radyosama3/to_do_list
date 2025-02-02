@@ -7,7 +7,7 @@ if($request->checkGet('id')){
     $date = $conn -> prepare( 'select * from todo where id=:id');
     $date -> bindParam(':id',$id,PDO::PARAM_INT);
     $date -> execute();
-    if($date -> rowCount() > 0){
+    if($date->rowCount()>0){
         $note = $date -> fetch(Pdo::FETCH_ASSOC);
 
     }
@@ -15,13 +15,12 @@ if($request->checkGet('id')){
         $session -> set('error','note not found');
         header('location:index.php');
     }
-}
-else{
-    $session -> set('error','ID not found');
-    header('location:index.php');
-}
-?>
-
+    }
+    else{
+        $session -> set('error','ID not found');
+        header('location:index.php');
+    }
+    ?>
 <body class="container w-50 mt-5">
     <?php 
     require_once 'inc/error.php';?>
